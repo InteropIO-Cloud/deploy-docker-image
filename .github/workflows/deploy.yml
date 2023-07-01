@@ -35,7 +35,7 @@ jobs:
             context: .
             file: ./Dockerfile
             push: true
-            tags: ${{ secrets.DOCKERHUB_USERNAME }}/validate-cloud-release:${{ github.event.inputs.version }}
+            tags: ${{ secrets.DOCKERHUB_USERNAME }}/deploy-docker-image:${{ github.event.inputs.version }}
     make-release:
       permissions:
         contents: write
