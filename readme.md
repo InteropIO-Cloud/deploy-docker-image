@@ -7,7 +7,7 @@ In addition to the required inputs, this action requires three environment varia
 Usage:
 ```yaml
 - name: Deploy Service Image
-  uses: interopio-cloud/deploy-docker-image@1.0.1
+  uses: interopio-cloud/deploy-docker-image@1.0.2
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
