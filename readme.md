@@ -9,7 +9,7 @@ If the service uses a private npm package from the jfrog artifactory, the `npm-t
 Usage:
 ```yaml
 - name: Deploy Service Image
-  uses: interopio-cloud/deploy-docker-image@1.1.0
+  uses: interopio-cloud/deploy-docker-image@1.1.1
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
