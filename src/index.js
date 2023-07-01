@@ -9,7 +9,7 @@ const run = async () => {
     const region = getInput("region", { required: true });
     const workingDir = getInput("working-dir", { required: true });
     const tagName = getInput("tag-name", { required: true });
-    const serviceRepositoryUri = getInput("repository-uri", { required: true });
+    const serviceRepositoryUri = getInput("service-repository-uri", { required: true });
     const serviceDockerFile = getInput("service-docker-file", { required: true });
 
     await exec(`aws ecr get-login-password --region ${region} | docker login --username AWS --password-stdin ${imagesRepo}`);

@@ -13,7 +13,7 @@ inputs:
   tag-name:
     description: "The tag name of the image"
     required: true
-  repository-uri:
+  service-repository-uri:
     description: "The URI of the docker image repository"
     required: true
   service-docker-file:
