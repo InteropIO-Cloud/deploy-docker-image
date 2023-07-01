@@ -1,5 +1,6 @@
 import { getInput, notice } from "@actions/core"
 import { exec } from "@actions/exec"
+import * as child from "node:child_process";
 
 const runCommand = (command) => {
     return new Promise((resolve, reject) => {
