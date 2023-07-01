@@ -1,18 +1,31 @@
 import { getInput, notice } from "@actions/core"
 import { exec } from "@actions/exec"
 
+const runCommand = (command) => {
+    return new Promise((resolve, reject) => {
+        child.exec(command, (error, stdout) => {
+            if (error) {
+                reject({ message: error.message });
+                return;
+            }
+
+            resolve(stdout);
+        });
+    });
+};
+
 const run = async () => {
 
-    // need set AWS ENV VARS
-
-    const imagesRepo = getInput("images-repo", { required: true }); // 389653476181.dkr.ecr.us-west-1.amazonaws.com -> constant ->
+    const imagesRepo = getInput("images-repo", { required: true });
     const region = getInput("region", { required: true });
     const workingDir = getInput("working-dir", { required: true });
     const tagName = getInput("tag-name", { required: true });
     const serviceRepositoryUri = getInput("service-repository-uri", { required: true });
     const serviceDockerFile = getInput("service-docker-file", { required: true });
 
-    await exec(`aws ecr get-login-password --region ${region} | docker login --username AWS --password-stdin ${imagesRepo}`);
+    await runCommand(`aws ecr get-login-password --region ${region} | docker login --username AWS --password-stdin ${imagesRepo}`);
+
+    // await exec(`aws ecr get-login-password --region ${region} | docker login --username AWS --password-stdin ${imagesRepo}`);
 
     notice("Authenticated with AWS ECR successfully.");
 
